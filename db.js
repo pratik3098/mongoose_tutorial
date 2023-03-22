@@ -31,7 +31,7 @@ const schema = new mongoose.Schema({
         trim : true, 
         required: [true, "password does not exists"], 
         immutable: true, 
-        validate: [validators.isValidUsername, 'invalid password'],
+        validate: [validators.isValidPassword, 'invalid password'],
         set: function(v){
             
         }
@@ -68,3 +68,6 @@ const schema = new mongoose.Schema({
         validate: [validators.isValidOrg, 'invalid org']
     }
 })
+
+
+console.log(schema)

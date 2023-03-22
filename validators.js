@@ -25,3 +25,21 @@ exports.isValidEmail=function(email){
 
 
 
+exports.isValidPassword=function(password){
+    return true
+}
+
+
+exports.isValidFirstName=function(firstName){
+    return true
+}
+
+
+exports.isValidLastName=function(lastName){
+    return true
+}
+
+
+exports.isValidOrg=function(org){
+    return true
+}
