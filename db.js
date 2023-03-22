@@ -70,4 +70,3 @@ const schema = new mongoose.Schema({
 })
 
 
-console.log(schema)
