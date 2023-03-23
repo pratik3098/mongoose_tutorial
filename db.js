@@ -3,17 +3,28 @@ const mongoose=require('mongoose')
 const utils=require('./utils.js')
 const connection=require("./connection.json")
 const validators=require("./validators.js")
+// Generating the  mongo connection string
 const dbUrl = utils.connectionString(connection)
+
+// Creating a mongo connection 
 const db =mongoose.createConnection(dbUrl, {  useNewUrlParser: true })
 
+
+// Creating a sample schema for user managgement 
 const schema = new mongoose.Schema({
     username: {
+        // Setting the key as the Primary id for the schema 
         unique: true, 
         type: String, 
+        // Adding the error check if the null/undefined/empty string is inputed
         sparse: true,
+        // Cleaning the string for any whitespaces
         trim : true, 
+        // Setting up the default value for the value rather than the user input 
         default: utils.newUserName(), 
+        // Making sure the value does not get updated in the future
         immutable: true, 
+        // Performing the regex validation
         validate: [validators.isValidUsername, 'invalid username']
     },
     
@@ -21,6 +32,7 @@ const schema = new mongoose.Schema({
         type: String, 
         sparse: true,
         trim : true, 
+        // Making sure the value is must 
         required: [true, "emailId does not exists"], 
         immutable: true, 
         validate: [validators.isValidEmail, 'invalid emailId']
