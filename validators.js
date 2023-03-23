@@ -15,7 +15,7 @@
  */
 exports.isValidUsername=function(username){
     // Please add valid regex checks here
-    return Boolean(username.length <= 8 )
+    return true
 }
 
 /**
@@ -25,7 +25,7 @@ exports.isValidUsername=function(username){
  */
 exports.isValidFirstName=function(name){
     // Please add valid regex checks here
-    return Boolean(name.length <= 8 )
+    return true
 }
 
 /**
@@ -35,7 +35,7 @@ exports.isValidFirstName=function(name){
  */
 exports.isValidLastName=function(name){
     // Please add valid regex checks here
-    return Boolean(name.length <= 8 )
+    return true
 }
 
 

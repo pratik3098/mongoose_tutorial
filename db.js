@@ -33,7 +33,8 @@ const schema = new mongoose.Schema({
     email: {
         type: String, 
         sparse: true,
-        trim : true, 
+        trim : true,
+        unique: true, 
         // Making sure the value is must 
         required: [true, "emailId does not exists"], 
         immutable: true, 
@@ -74,7 +75,7 @@ const schema = new mongoose.Schema({
         get: getters.timestamp
     },
 
-    organisation: {
+    org: {
         type: String, 
         sparse: true,
         trim : true, 
@@ -82,4 +83,7 @@ const schema = new mongoose.Schema({
     }
 })
 
+
+// String  all the schema structured data in a collection 'User'
+module.exports=db.model('User', schema)
 

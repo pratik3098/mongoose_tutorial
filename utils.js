@@ -21,5 +21,19 @@ exports.newUserName=function(){
 }
 
 
-
-console.log(Date.now())
+/**
+ * The generic callabck function to console the resposne or the error
+ * @param {Error} err 
+ * @param {*} res 
+ */
+exports.callback=function(err,res){
+      
+          if(err){
+            console.log('Error: ', err)
+          }else{
+            console.log("====================")
+            console.log(res)
+            console.log("====================")
+    
+          }
+}
