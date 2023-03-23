@@ -20,3 +20,6 @@ exports.newUserName=function(){
   return randomstring.generate(7)
 }
 
+
+
+console.log(Date.now())

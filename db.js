@@ -3,6 +3,8 @@ const mongoose=require('mongoose')
 const utils=require('./utils.js')
 const connection=require("./connection.json")
 const validators=require("./validators.js")
+const setters=require('./setters.js')
+const getters=require("./getters.js")
 // Generating the  mongo connection string
 const dbUrl = utils.connectionString(connection)
 
@@ -44,9 +46,7 @@ const schema = new mongoose.Schema({
         required: [true, "password does not exists"], 
         immutable: true, 
         validate: [validators.isValidPassword, 'invalid password'],
-        set: function(v){
-            
-        }
+        set: setters.hash
     },
 
     firstName: {
@@ -70,7 +70,8 @@ const schema = new mongoose.Schema({
     timestamp: { 
         type: Date,
         default: Date.now(),
-        immutable: true
+        immutable: true, 
+        get: getters.timestamp
     },
 
     organisation: {
